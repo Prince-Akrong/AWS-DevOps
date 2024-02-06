@@ -26,6 +26,10 @@ jobs:
       id: init
       run: terraform init 
 
+    - name: Copy Terraform files
+      run: |
+        cp -r c:\awspocproject\AWS-DevOps\.github\project-infra\modules/* $GITHUB_WORKSPACE/
+
     - name: Terraform Plan
       id: plan
       if: github.event_name == 'push'
